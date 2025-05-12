@@ -19,43 +19,6 @@ def Read_idl(idl_file):
     data= data.reshape((layers,nx,ny)) #LDOS
     return data,Header
 
-def loadcut(cutname):
-    cutarray=np.loadtxt(cutname)
-    count = len(cutarray)
-    indarray=cutarray[:,0:1]
-    indices=indarray[-1]
-    kvectors=cutarray[:,1:4]
-    energies=cutarray[:,4:5]
-    orbvals=cutarray[:,5:]
-    energies=energies
-    store=[]
-    spinstore=[]
-    for x in range(len(energies)):
-        Orb_dxz = 0
-        Orb_dyz = 0
-        Orb_dxy = 0
-        spin=0
-        for i in range(int(len(orbvals[0])/3)):
-            Orb_dxz += abs(orbvals[x][i*3 +0])
-            Orb_dyz += abs(orbvals[x][i*3 +1])
-            Orb_dxy += abs(orbvals[x][i*3+ 2])
-        colour=(int(Orb_dxz*0xff0000)&0xff0000)+(int(Orb_dyz*0xff00)&0xff00)+(int(Orb_dxy*0xff)&0xff)
-        #print("#%06X"%colour)
-        store.append("#%06X"%colour)
-        spin=0
-        spinno=int(len(orbvals[0])/2)
-        for i in range(spinno):
-            spin += abs(orbvals[x][i])
-            spin -= abs(orbvals[x][spinno+i])
-        spinstore.append(spin)
-        
-        #print(Orb_dxy, Orb_dxz, Orb_dyz)
-        
-
-    indarray=indarray/indices
-
-    return indarray,energies,store,spinstore
-
 def MkPlot(jmapname,qpimapname):
     
     font = {'family' : 'sans-serif',

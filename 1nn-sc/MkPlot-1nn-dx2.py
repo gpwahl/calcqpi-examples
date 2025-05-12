@@ -19,44 +19,27 @@ def Read_idl(idl_file):
     data= data.reshape((layers,nx,ny)) #LDOS
     return data,Header
 
-def loadcut(cutname):
-    cutarray=np.loadtxt(cutname)
-    count = len(cutarray)
-    indarray=cutarray[:,0:1]
-    indices=indarray[-1]
-    kvectors=cutarray[:,1:4]
-    energies=cutarray[:,4:5]
-    orbvals=cutarray[:,5:]
-    energies=energies
-    store=[]
-    spinstore=[]
-    for x in range(len(energies)):
-        Orb_dxz = 0
-        Orb_dyz = 0
-        Orb_dxy = 0
-        spin=0
-        for i in range(int(len(orbvals[0])/3)):
-            Orb_dxz += abs(orbvals[x][i*3 +0])
-            Orb_dyz += abs(orbvals[x][i*3 +1])
-            Orb_dxy += abs(orbvals[x][i*3+ 2])
-        colour=(int(Orb_dxz*0xff0000)&0xff0000)+(int(Orb_dyz*0xff00)&0xff00)+(int(Orb_dxy*0xff)&0xff)
-        #print("#%06X"%colour)
-        store.append("#%06X"%colour)
-        spin=0
-        spinno=int(len(orbvals[0])/2)
-        for i in range(spinno):
-            spin += abs(orbvals[x][i])
-            spin -= abs(orbvals[x][spinno+i])
-        spinstore.append(spin)
-        
-        #print(Orb_dxy, Orb_dxz, Orb_dyz)
-        
+def calcprfft(qpimapheader,qpimap):
+    qpibiaslower=float(qpimapheader[9])
+    qpibiasupper=float(qpimapheader[10])
+    qpilayers=int(qpimapheader[4])
+    zerobias=int((-qpibiaslower)/(qpibiasupper-qpibiaslower)*qpilayers)
+    for i in range(len(qpimap)):
+       qpimap[i]=qpimap[i]-np.average(qpimap[i])
+    cqpimap=np.fft.fftshift(np.fft.fft2(qpimap),axes=(1,2))
+    qpimap=np.abs(cqpimap)
+    for ref in range(zerobias):
+        i=len(qpimap)-ref-1
+        qpimap[i]=np.real(cqpimap[i,:,:]*np.abs(cqpimap[ref,:,:])/cqpimap[ref,:,:])
+    return qpimap
 
-    indarray=indarray/indices
+def calcfft(qpimap):
+    for i in range(len(qpimap)):
+       qpimap[i]=qpimap[i]-np.average(qpimap[i])
+    qpimap=np.fft.fftshift(np.abs(np.fft.fft2(qpimap)),axes=(1,2))
+    return qpimap
 
-    return indarray,energies,store,spinstore
-
-def MkPlot(qpimapname,qpinsmapname,qpifftmapname):
+def MkPlot(qpimapname,qpinsmapname):
     
     font = {'family' : 'sans-serif',
         'sans-serif' : 'Arial',
@@ -108,8 +91,9 @@ def MkPlot(qpimapname,qpinsmapname,qpifftmapname):
     axs[0][0].set_ylabel(r'$r_y$')
     
     
-    qpimap,qpimapheader=Read_idl(qpifftmapname)
-    vmax=0.0025*np.max(qpimap[fermilayer,:,:])
+    #qpimap,qpimapheader=Read_idl(qpifftmapname
+    qpimap=calcprfft(qpimapheader,qpimap)
+    vmax=0.01*np.max(qpimap[fermilayer,:,:])
     vmin=-vmax
     axs[1][0].imshow(qpimap[fermilayer,:,:],extent=[-2, 2, -2, 2],cmap='seismic_r',origin='lower',vmin=vmin,vmax=vmax)
 
@@ -237,6 +221,6 @@ def main():
     ###To run python3 seedname Fermi_Energy Ymin Ymax
     ### e.g python3 Sr2RuO4_hr.dat 0.0 -1 1
     #cutname = str(sys.argv[1]) #Name of Hamiltonian file e.g Sr2RuO4.dat
-    MkPlot('1nn-dx2r.idl','1nn.idl','1nn-dx2r-dbsqpi.idl')
+    MkPlot('1nn-dx2r.idl','1nn.idl')
         
 main()
