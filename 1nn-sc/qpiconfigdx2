@@ -1,0 +1,17 @@
+tbfile="1nn-dx2";
+output="wannier";
+qpifile="1nn-dx2.idl";
+lattice=64;
+kpoints=2048;
+eta=0.0002;
+energies=(-0.02,0.02);
+layers=81;
+window=2;
+oversamp=4;
+scmodel=true;
+scattering=(1);
+phase=(1,0);
+orbitals=(s);
+pos[0]=(0.5,0.5);
+radius=0.5;
+zheight=0.5;

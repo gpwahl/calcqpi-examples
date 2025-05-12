@@ -1,0 +1,10 @@
+tbfile="topo.dat";
+qpifile="spfbulk.idl";
+green=bulk;
+kpoints=512;
+lattice=512;
+energies=(-0.5,0.5);
+layers=201;
+eta=0.001;
+output="spf";
+

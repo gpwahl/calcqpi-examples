@@ -1,0 +1,10 @@
+tbfile="1nn-hex-c1";
+window=2;
+oversamp=4;
+orbitals=(s);
+pos[0]=(0.0,0.0);
+radius=0.5;
+zheight=0.5;
+basisvector[0]=(1.0,0.0);
+basisvector[1]=(0.5,0.866);
+mkwffile="hexwf.idl";
