@@ -19,6 +19,13 @@ def Read_idl(idl_file):
     data= data.reshape((layers,nx,ny)) #LDOS
     return data,Header
 
+def swaplayers(data,header):
+    newdata=np.flip(np.copy(data),axis=0)
+    newheader=header.copy()
+    newheader[9],newheader[10]=header[10],header[9]
+    return newdata,newheader
+
+
 def calcprfft(qpimapheader,qpimap):
     qpibiaslower=float(qpimapheader[9])
     qpibiasupper=float(qpimapheader[10])
@@ -65,7 +72,7 @@ def MkPlot(qpimapname,qpinsmapname):
     qpilayers=int(qpimapheader[4])
 
     avespec=np.average(qpimap,axis=(1,2))
-    avespec=avespec/avespec[0]
+    avespec=avespec/avespec[-1]
     qpinsmap,qpinsmapheader=Read_idl(qpinsmapname)
     nsavespec=np.average(qpinsmap,axis=(1,2))
     nsavespec=nsavespec/nsavespec[-1]
@@ -90,7 +97,11 @@ def MkPlot(qpimapname,qpinsmapname):
     axs[0][0].set_xlabel(r'$r_x$')
     axs[0][0].set_ylabel(r'$r_y$')
     
-    
+    qpimap,qpimapheader=swaplayers(qpimap,qpimapheader)
+    qpibiaslower=float(qpimapheader[9])*1000.0
+    qpibiasupper=float(qpimapheader[10])*1000.0
+    refenergy=-5.0
+    fermilayer=int((refenergy-qpibiaslower)/(qpibiasupper-qpibiaslower)*qpilayers)
     #qpimap,qpimapheader=Read_idl(qpifftmapname
     qpimap=calcprfft(qpimapheader,qpimap)
     vmax=0.01*np.max(qpimap[fermilayer,:,:])
@@ -221,6 +232,6 @@ def main():
     ###To run python3 seedname Fermi_Energy Ymin Ymax
     ### e.g python3 Sr2RuO4_hr.dat 0.0 -1 1
     #cutname = str(sys.argv[1]) #Name of Hamiltonian file e.g Sr2RuO4.dat
-    MkPlot('1nn-dx2r.idl','1nn.idl')
+    MkPlot('1nn-dx2.idl','1nn.idl')
         
 main()
