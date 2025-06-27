@@ -8,15 +8,12 @@ include ../config.mk
 .wfc.idl: ; $(mkwavefunctions) $*.wfc
 
 PROJ1=1nnhexfigure.pdf
-IDL1=1nn-hex.idl hexwf.idl bshist-hex.idl
-SRC1=1nn-hex.qpic hexwf.wfc
+IDL1=1nn-hex.idl hexwf.idl spf.idl
+SRC1=1nn-hex.qpic hexwf.wfc spf.qpic
 
 all: $(PROJ1)
 
 1nn-hex.idl: hexwf.idl
-
-bshist-hex.idl:
-	writebandstructure -obshist-hex.idl -l41 -n200 -r-0.03,0.03 1nn-hex
 
 $(PROJ1): $(IDL1)
 	python3 MkGraph-1nnhex.py

@@ -13,4 +13,4 @@ The folders are:
 * 1nn-sc      nearest neighbour model with a dx2 superconducting gap
 * 1nn-josephson as 1nn-sc, but with configuration files to simulate Josephson current as would be measured with a superconducting tip
 
-To run the simulations, calcQPI is required.
+To run the simulations, calcQPI is required, and to generate the figures, an installation of python3 with numpy and matplotlib. The file config.mk contains the path to calcQPI. All simulations can be run by just typing make

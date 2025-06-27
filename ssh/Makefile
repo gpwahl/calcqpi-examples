@@ -7,8 +7,8 @@ include ../config.mk
 .qpic.idl: ; $(calcqpi) $*.qpic
 
 PROJ1=qpissh.pdf
-IDL1=qpibulk.idl qpisurface.idl spbulk.idl spsurface.idl
-SRC1=qpibulk.qpic qpisurface.qpic spbulk.qpic spsurface.qpic
+IDL1=qpibulk.idl qpisurface.idl spfbulk.idl spfsurface.idl
+SRC1=qpibulk.qpic qpisurface.qpic spfbulk.qpic spfsurface.qpic
 
 all: $(PROJ1)
 

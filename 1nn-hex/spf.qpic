@@ -1,0 +1,9 @@
+tbfile="1nn-hex";
+output="spf";
+qpifile="spf.idl";
+kpoints=400;
+lattice=400;
+eta=0.0015;
+energies=(-0.03,0.03);
+layers=41;
+window=2;

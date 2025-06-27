@@ -59,7 +59,7 @@ gs=fig.add_gridspec(2,2,hspace=0.4,wspace=0.3)
 axs=gs.subplots()
 axs[0, 0].axis('off')
 layer=20
-bshist,bsheader = Read_idl('bshist-hex.idl')
+bshist,bsheader = Read_idl('spf.idl')
 do_plot(axs[1][0],bshist[layer], mtransforms.Affine2D().scale(1.0, -0.866).skew_deg(30, 0),np.min(bshist[layer]),np.max(bshist[layer]),cmap='Greys')
 axs[1][0].set_xlabel(r'$k_x$')
 axs[1][0].set_ylabel(r'$k_y$')
