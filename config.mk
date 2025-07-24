@@ -1,2 +1,2 @@
-calcqpi	= ~/src/wannier-tb-gpu/src/calcqpi
+calcqpi	= ~/src/wannier-tb/src/calcqpi
 mkwavefunctions = mkwavefunctions

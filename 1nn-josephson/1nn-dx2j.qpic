@@ -1,5 +1,5 @@
 tbfile="1nn-dx2";
-output="josephson";
+output=josephson;
 qpifile="1nn-dx2j.idl";
 kpoints=2048;
 lattice=8;

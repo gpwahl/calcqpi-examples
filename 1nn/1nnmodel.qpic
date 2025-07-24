@@ -16,4 +16,4 @@ energies=(-0.5,0.5);
 phase=(1.0,0.0);
 scattering=(1);
 orbitals=(s);
-output="wannier";
+output=wannier;

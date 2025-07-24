@@ -1,5 +1,5 @@
 tbfile="1nn-hex";
-output="wannier";
+output=wannier;
 qpifile="1nn-hex.idl";
 kpoints=4096;
 lattice=64;

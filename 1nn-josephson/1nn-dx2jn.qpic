@@ -1,5 +1,5 @@
 tbfile="1nn-dx2";
-output="wannier";
+output=wannier;
 qpifile="1nn-dx2jn.idl";
 kpoints=2048;
 lattice=8;

@@ -18,5 +18,5 @@ scattering=(1,0,1,0);
 phase=(0.5,0.0);
 zheight=2.0;
 spin=true;
-output="wannier";
+output=wannier;
 

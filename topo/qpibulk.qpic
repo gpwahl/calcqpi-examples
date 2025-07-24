@@ -17,5 +17,5 @@ pos[3]=(0.5,0.5,-0.5);
 scattering=(1,0,1,0);
 phase=(0.5,0.0);
 zheight=2.0;
-output="wannier";
+output=wannier;
 

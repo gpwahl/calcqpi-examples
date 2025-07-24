@@ -13,5 +13,5 @@ eta=0.005;
 pos[0]=(0,0,0.0);
 pos[1]=(0,0,-0.5);
 orbitals=(s,s);
-output="wannier";
+output=wannier;
 

@@ -14,5 +14,5 @@ orbitals=(s,s);
 radius=0.5;
 zheight=2.0;
 spin=true;
-output="wannier";
+output=wannier;
 

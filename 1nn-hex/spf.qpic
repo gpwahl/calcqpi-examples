@@ -1,5 +1,5 @@
 tbfile="1nn-hex";
-output="spf";
+output=spf;
 qpifile="spf.idl";
 kpoints=400;
 lattice=400;
