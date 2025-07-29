@@ -1,0 +1,17 @@
+tbfile="ssh1nn.dat";
+qpifile="qpibulk.idl";
+green=bulk;
+kpoints=256;
+lattice=64;
+window=2;
+oversamp=2;
+radius=0.25;
+zheight=2.0;
+energies=(-1,1);
+layers=101;
+eta=0.005;
+pos[0]=(0,0,0.0);
+pos[1]=(0,0,-0.5);
+orbitals=(s,s);
+output=wannier;
+

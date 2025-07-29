@@ -1,0 +1,13 @@
+tbfile="1nn-hex";
+output=wannier;
+qpifile="1nn-hex.idl";
+kpoints=4096;
+lattice=64;
+eta=0.0004;
+energies=(-0.03,0.03);
+layers=41;
+window=2;
+oversamp=4;
+scattering=(1);
+phase=(1,0);
+idlorbitalfile="hexwf.idl";

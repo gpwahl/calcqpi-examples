@@ -1,0 +1,10 @@
+tbfile="1nn-z";
+qpifile="spf-bulk.idl";
+kpoints=512;
+lattice=512;
+green=bulk;
+energies=(-0.5,0.5);
+layers=151;
+eta=0.005;
+output=spf;
+
