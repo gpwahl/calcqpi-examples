@@ -6,7 +6,7 @@ This is a repository of minimal tight-binding models to demonstrate the capabili
 
 Homepage: https://wahl.wp.st-andrews.ac.uk/calcqpi
 
-Github: https://github.com/gpwahl/calcqpi-scipost-release (version accompanying preprint)
+Github: https://github.com/gpwahl/calcqpi-release (version accompanying preprint)
 
 The minimal models test a range of functionalities of calcQPI, including calculation of surface states, Rashba spin splitting, topogically protected surface states, nearest neighbour tight-binding models on square and hexagonal lattices, and calculations of Bogoljubov quasi-particle interference.
 
