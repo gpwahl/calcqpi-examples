@@ -19,4 +19,4 @@ $(PROJ1): $(IDL1)
 	python3 MkGraph-1nnhex.py
 
 clean:
-	-rm *.idl *.pdf *.log
+	-@rm *.idl *.pdf *.log 2>/dev/null || true

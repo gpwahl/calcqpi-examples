@@ -16,4 +16,4 @@ $(PROJ1): $(IDL1)
 	python3 MkPlot-1nnz.py
 
 clean:
-	-rm *.idl *.pdf *.log
+	-@rm *.idl *.pdf *.log 2>/dev/null || true

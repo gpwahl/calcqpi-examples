@@ -16,4 +16,4 @@ $(PROJ1): $(IDL1)
 	python3 MkGraph-ssh.py
 
 clean:
-	-rm *.idl *.pdf *.log
+	-@rm *.idl *.pdf *.log 2>/dev/null || true
