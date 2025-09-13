@@ -12,6 +12,7 @@ layers=101;
 eta=0.005;
 pos[0]=(0,0,0.0);
 pos[1]=(0,0,-0.5);
+scattering=(1,0);
 orbitals=(s,s);
 output=wannier;
 
