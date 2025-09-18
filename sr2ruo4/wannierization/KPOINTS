@@ -1,0 +1,5 @@
+k-points
+ 0                                        # not sure what this is. 
+Gamma
+8 8 1                                     #kpoints
+0 0 0

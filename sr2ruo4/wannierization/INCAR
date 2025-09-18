@@ -1,0 +1,56 @@
+System = Sr2RuO4              #This can be anything. but the OUTCAR file will show this name
+PREC = Accurate               # I see no reason to not use Accurate, but it is not the default. 
+ISTART = 0                    # 0 - start a new calculation, 1-read WAVECAR and continue 
+ICHARG = 2                    # 2 - dont use previous charge density (start again) 1 - read the CHGCAR and continue 11 - read the CHGCAR and do not modify it (use 11 for band structures and DOS)
+LORBIT=11
+#######################################################################################################
+#Electronic optimisation
+KPAR=4
+NCORE=1
+ENCUT = 600                   #eV the plane wave cutoff <- IMPORTANT
+ISMEAR = 0                    # 0 -Gaussian smearing same as QE  -5 is the tag to use for semiconductors and insulators. 
+SIGMA = 0.1                   # width of Gaussian smearing. For metals you will rarely need to change this. 
+#######################################################################################################
+#Relaxation
+ISIF = 3                     # 3 - relaxaing atoms, cell shape, and cell volume 2 - relax atoms only. 
+IBRION = -1                  # -1 don't do relaxation  2 - use Conguagate Gradient Alogrithm
+NSW = 0                      # max number of steps in ionic relaxation 
+EDIFF = 1E-6                 # energy convergence threshold for relaxation (eV)
+EDIFFG = -1E-4               # force convergence threshold for relaxation (A/eV) if negative, relaxation will stop if all forces are smaller than the absoulte value of EDIFFG. Apparently better to do this.  
+#######################################################################################################
+ISYM = 0                    #symmetry of brillouin zone, 2 means use symmetry 0 means don't use symmetry. (2 is quicker)
+LWAVE = .TRUE.              #print WAVCAR file
+LCHARG = .TRUE.             #print CHGCAR file
+LMAXMIX = 4                 #for d orbitals 4 is needed, for f orbitals 6 is needed.  
+###################################################################################################
+#magnetism
+#MAGMOM = 42*0.0
+#SAXIS = 0 0 1           #direction of magnetisation 
+#ISPIN = 2               #number of spins
+LSORBIT = .FALSE.        #spin orbit - makes the calculations much more expensive
+LNONCOLLINEAR = .FALSE.  # allows spins to point in random directions. If you use this you must run vasp_ncl rather than vasp_std.
+LWANNIER90=.TRUE.
+LWANNIER90_RUN=.FALSE.
+NUM_WANN=6
+LWRITE_MMN_AMN=.TRUE.
+LWRITE_UNK = .TRUE.
+WANNIER90_WIN = "
+begin projections
+f=0.0,0.0,0.5 :dxy;dxz;dyz: x=1,-1,0
+f=0.5,0.5,0.5 :dxy;dxz;dyz: x=1,-1,0
+end projections
+
+write_hr = .true.
+wannier_plot = .true.
+wannier_plot_supercell = 7 7 1
+
+num_iter          =   0
+num_print_cycles  =   50
+#exclude_bands = 1-80,104,110-124
+dis_win_min = -4.9
+dis_win_max =  1.1
+dis_froz_min = -3.0
+dis_froz_max = -0.65
+dis_num_iter  = 10000
+"
+

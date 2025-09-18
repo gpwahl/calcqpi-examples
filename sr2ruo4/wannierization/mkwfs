@@ -1,0 +1,9 @@
+#!/bin/bash
+mkwavefunctions - <<EOF
+tbfile="wannier90_hr.dat";
+window=2;
+oversamp=4;
+orbitalfiles=("wannier90_00001.xsf","wannier90_00002.xsf","wannier90_00003.xsf","wannier90_00004.xsf","wannier90_00005.xsf","wannier90_00006.xsf");
+zheight=3.0;
+mkwffile="214-9deg-wf.idl";
+EOF

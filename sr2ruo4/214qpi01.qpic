@@ -1,0 +1,15 @@
+tbfile="Sr2RuO4-surface.dat";
+logfile="Sr2RuO4-surface-01.log";
+qpifile="214qpi01.idl";
+window=2;
+oversamp=4;
+lattice=32;
+kpoints=512;
+layers=41;
+eta=0.0005;
+spin=true;
+energies=(-0.02,0.02);
+phase=(0.5,0.0);
+scattering=(0,0,0,1,1,1,0,0,0,1,1,1);
+idlorbitalfile="214-9theta-wf-spin.idl";
+output=wannier;
