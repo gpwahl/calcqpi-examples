@@ -22,4 +22,4 @@ In the final step, it is usually convenient to convert the .xsf files (which are
 
 which is a shell script that converts the xsf files from Wannier90 into the input file ('214-9deg-wf.idl') for the continuum transformation in calcQPI.
 
-It should be noted that the tight-binding model has the Fermi energy not at zero, but at the value specified in the OUTCAR file from VASP.
+It should be noted that the tight-binding model has the Fermi energy not at zero, but at the value provided in the OUTCAR file from VASP.
