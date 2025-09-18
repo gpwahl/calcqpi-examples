@@ -2,7 +2,7 @@
 
 ![CalcQPI logo](Calcqpi-logo.png)
 
-This is a repository of minimal tight-binding models to demonstrate the capabilities of calcQPI in calculating QPI patterns. The examples are described in teh preprint at https://arxiv.org/abs/2507.22137
+This is a repository of minimal tight-binding models to demonstrate the capabilities of calcQPI in calculating QPI patterns. The examples are described in the preprint at https://arxiv.org/abs/2507.22137
 
 Homepage: https://wahl.wp.st-andrews.ac.uk/calcqpi
 
