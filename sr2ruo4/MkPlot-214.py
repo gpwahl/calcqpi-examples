@@ -56,8 +56,8 @@ def MkPlot(qpi01mapname,qpi10mapname):
     ###############################
     #Plotting the main dispersions - horiz#
     ###############################
-    fig=plt.figure(figsize=(13,4))
-    gs=fig.add_gridspec(1,3,hspace=0.45)
+    fig=plt.figure(figsize=(14.5,4))
+    gs=fig.add_gridspec(1,3,wspace=0.3)
     #gs=fig.add_gridspec(2,3, hspace=0,wspace=0)
 
     axs=gs.subplots()
@@ -76,8 +76,8 @@ def MkPlot(qpi01mapname,qpi10mapname):
     avespec=avespec/avespec[-1]
     bias=np.linspace(qpibiaslower,qpibiasupper,qpilayers,endpoint=True)
     axs[0].scatter(bias,avespec,c='k')
-    axs[0].set_xticks([-8,-4,0,4,6])
-    axs[0].set_xlim([qpibiaslower,qpibiasupper])
+    axs[0].set_xticks([-8,-4,0,4,8])
+    axs[0].set_xlim([-10,10])
     axs[0].set_xlabel('Bias (mV)')
     axs[0].set_ylabel(r'$\rho(eV)$ (rel. u.)')
     refenergy=-2.8
