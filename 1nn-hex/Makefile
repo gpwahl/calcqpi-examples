@@ -13,7 +13,8 @@ SRC1=1nn-hex.qpic hexwf.wfc spf.qpic
 
 all: $(PROJ1)
 
-1nn-hex.idl: hexwf.idl
+1nn-hex.idl: hexwf.idl 1nn-hex
+spf.idl: 1nn-hex
 
 $(PROJ1): $(IDL1)
 	python3 MkGraph-1nnhex.py

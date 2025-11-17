@@ -10,6 +10,9 @@ PROJ1=rashba.pdf
 IDL1=qpi1nnrashba.idl spf.idl
 SRC1=qpi1nnrashba.qpic spf.qpic
 
+qpi1nnrashba.idl: 1nnrashba.dat
+spf.idl: 1nnrashba.dat
+
 all: $(PROJ1)
 
 $(PROJ1): $(IDL1)

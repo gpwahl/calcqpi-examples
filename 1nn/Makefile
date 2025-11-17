@@ -10,6 +10,10 @@ PROJ1=1nnfigure.pdf
 IDL1=1nnmodel.idl spf.idl
 SRC1=1nnmodel.qpic spf.qpic
 
+1nnmodel.idl: 1nn
+
+spf.idl: 1nn
+
 all: $(PROJ1)
 
 $(PROJ1): $(IDL1)

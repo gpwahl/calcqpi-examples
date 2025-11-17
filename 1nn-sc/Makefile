@@ -10,6 +10,9 @@ PROJ1=1nn-dx2figure.pdf
 IDL1=1nn.idl 1nn-dx2.idl
 SRC1=1nn.qpic 1nn-dx2.qpic
 
+1nn.idl: 1nn
+1nn-dx2.idl: 1nn-dx2
+
 all: $(PROJ1)
 
 $(PROJ1): $(IDL1)

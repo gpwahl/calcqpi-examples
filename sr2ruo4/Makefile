@@ -10,6 +10,9 @@ PROJ1=214figure.pdf
 IDL1=214qpi01.idl 214qpi10.idl
 SRC1=214qpi01.qpic 214qpi10.qpic
 
+214qpi01.idl: 214-9theta-wf-spin.idl Sr2RuO4-surface.dat
+214qpi10.idl: 214-9theta-wf-spin.idl Sr2RuO4-surface.dat
+
 all: $(PROJ1)
 
 $(PROJ1): $(IDL1)

@@ -10,6 +10,11 @@ PROJ1=qpissh.pdf
 IDL1=qpibulk.idl qpisurface.idl spfbulk.idl spfsurface.idl
 SRC1=qpibulk.qpic qpisurface.qpic spfbulk.qpic spfsurface.qpic
 
+qpibulk.idl: topo.dat
+qpisurface.idl: topo.dat
+spfbulk.idl: topo.dat
+spfsurface.idl: topo.dat
+
 all: $(PROJ1)
 
 $(PROJ1): $(IDL1)

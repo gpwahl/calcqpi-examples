@@ -10,6 +10,9 @@ PROJ1=1nnzfigure.pdf
 IDL1=nn1zqpi.idl spf-bulk.idl
 SRC1=nn1zqpi.qpic spf-bulk.qpic
 
+nn1zqpi.idl: 1nn-z
+spf-bulk.idl: 1nn-z
+
 all: $(PROJ1)
 
 $(PROJ1): $(IDL1)
