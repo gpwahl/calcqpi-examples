@@ -2,11 +2,11 @@
 
 ![CalcQPI logo](Calcqpi-logo.png)
 
-This is a repository of minimal tight-binding models to demonstrate the capabilities of calcQPI in calculating QPI patterns. The examples are described in the preprint at https://arxiv.org/abs/2507.22137
+This is a repository of minimal tight-binding models to demonstrate the capabilities of calcQPI in calculating QPI patterns. The examples are described in the paper at [SciPost Physics Codebases 61 (2025)](https://scipost.org/10.21468/SciPostPhysCodeb.61).
 
 Homepage: https://wahl.wp.st-andrews.ac.uk/calcqpi
 
-Github: https://github.com/gpwahl/calcqpi-release (version accompanying preprint)
+Github of the calcQPI code: https://github.com/gpwahl/calcqpi-release (version accompanying preprint)
 
 The minimal models test a range of functionalities of calcQPI, including calculation of surface states, Rashba spin splitting, topogically protected surface states, nearest neighbour tight-binding models on square and hexagonal lattices, and calculations of Bogoljubov quasi-particle interference.
 
